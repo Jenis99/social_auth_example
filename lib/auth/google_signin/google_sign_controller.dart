@@ -15,11 +15,16 @@ class GoogleAuthController extends GetxController {
 
   Future<void> signInGoogle() async {
     try {
+
+      var webClientId="251627097738-mf377i2qupr8omv8o1rks0l0ja4vplh9.apps.googleusercontent.com";/*--- this is webapp client Id also we can say that serverClientId for Android because android client id is not supported*/
+      var iosClientId="251627097738-f6jpioage37i6s6c37umohvi2h31golk.apps.googleusercontent.com";/*--- this is IOS client Id for IOS*/
+
+
       GoogleSignIn googleSignIn = GoogleSignIn(
         clientId: Platform.isAndroid
-            ? "251627097738-mf377i2qupr8omv8o1rks0l0ja4vplh9.apps.googleusercontent.com" /*--- this is webapp client Id for Android because android client id is not supported*/
-            : "251627097738-f6jpioage37i6s6c37umohvi2h31golk.apps.googleusercontent.com",
-        /*--- this is IOS client Id for IOS*/
+            ? webClientId
+            : iosClientId,
+
         scopes: [
           'email',
         ],
